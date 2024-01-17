@@ -75,6 +75,8 @@ set_property -name "used_in_synthesis" -value "0" -objects $file_obj
 
 # Create block design
 source ../../board/${vivado_board_name}/${block_design_tcl}
+source ../../board/${vivado_board_name}/ocm.tcl
+source ../../board/${vivado_board_name}/ila.tcl
 
 if { [llength [get_bd_intf_pins -quiet RocketChip/JTAG]] == 1 } {
   create_bd_cell -type module -reference bscan2jtag JTAG

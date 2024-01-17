@@ -10,3 +10,5 @@ set_property CFGBVS GND [current_design]
 # SI570 user clock
 set_property -dict {LOC AV19 IOSTANDARD LVDS} [get_ports clk_user_clk_n]
 set_property -dict {LOC AU19 IOSTANDARD LVDS} [get_ports clk_user_clk_p]
+
+set_property BITSTREAM.General.UnconstrainedPins {Allow} [current_design]

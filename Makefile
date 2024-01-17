@@ -4,12 +4,24 @@ ifneq (,$(wildcard workspace/config))
 include workspace/config
 endif
 
-BOARD ?= nexys-video
-CONFIG ?= rocket64b2
+BOARD ?= u200
+CONFIG ?= rocket32s16
 HW_SERVER_ADDR ?= localhost:3121
 JAVA_OPTIONS ?=
 CFG_FORMAT ?= mcs
 
+
+CPU_L1 ?= rocket32s16
+CPU_L2 ?= rocket64b2l2
+
+# This file defines board-dependent VARIABLES
+# 	BOARD_PART
+# 	XILINX_PART
+# 	CFG_DEVICE
+# 	CFG_PART
+# 	CFG_BOOT
+# 	MEMORY_SIZE
+# 	ROOTFS
 include board/$(BOARD)/Makefile.inc
 
 all: bitstream
@@ -36,6 +48,9 @@ update-submodules:
 clean-submodules:
 	git submodule foreach --recursive git clean -xfdq
 	rm -rf workspace/patch-*-done
+
+clean-wsp:
+	rm -rf workspace && rm *.jou *.log
 
 clean:
 	git submodule foreach --recursive git clean -xfdq

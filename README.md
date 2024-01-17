@@ -1,5 +1,3 @@
-# vivado-risc-v
-
 # AMD/Xilinx Vivado block designs for FPGA RISC-V SoC running Debian Linux distro.
 
 This repository contains FPGA prototype of fully functional [RISC-V](https://riscv.org/) Linux server
@@ -18,12 +16,14 @@ Latest AMD/Xilinx tools support debugging of RISC-V software over JTAG.
 # Prerequisites
 
 ## Hardware
+[AMD Alveo AU200](https://www.xilinx.com/products/boards-and-kits/alveo/u200.html) or
 [AMD VC707](https://www.xilinx.com/products/boards-and-kits/ek-v7-vc707-g.html) or
 [AMD KC705](https://www.xilinx.com/products/boards-and-kits/ek-k7-kc705-g.html) or
 [Digilent Genesys 2](https://digilent.com/reference/programmable-logic/genesys-2/start) or
 [Digilent Nexys Video](https://digilent.com/reference/programmable-logic/nexys-video/start) or
 [Digilent Nexys A7 100T](https://digilent.com/reference/programmable-logic/nexys-a7/start) or
 [Digilent Arty A7 100T](https://digilent.com/reference/programmable-logic/arty-a7/start) board.
+
 
 VC707 allows to prototype more powerful system: up to 8 64-bit RISC-V cores, up to 100MHz clock speed, 1GB RAM.
 
@@ -32,6 +32,8 @@ KC705 and Genesys 2 are as fast as VC707, but have slightly smaller FPGA - up to
 Nexys Video is several times less expensive, academic discount is avaialble. It supports up to 2 cores, up to 50MHz clock speed.
 
 Nexys A7 100T and Arty A7 100T are least expensive supported boards. They have small FPGA, barely enough to run Linux on a single core RISC-V at 50MHz.
+
+UE 5G reference design uses AU200 as the platform which provides enough resources to prototype an SoC with 2 RISC-V CPUs and a bunch of L1 accelerators such as LDPC, Polar encoders/decoders. 
 
 ## Workstation
 [Ubuntu 20 LTS](https://ubuntu.com/download/desktop) machine with min 32GB RAM is recommended.
@@ -42,7 +44,7 @@ Alternatively, a Windows 10 machine with Ubuntu on Windows can be used to run th
 ## Software
 Download and install AMD/Xilinx
 [Vitis](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html).
-Supported Vitis versions are 2020.2, 2021.1, 2021.2, 2022.1, 2022.2, 2023.1, 2023.2.
+Supported Vitis versions are 2020.2, 2021.1, 2021.2, 2022.1, 2022.2, 2023.1, 2023.2. For 5G UE reference design, we use version 2022.2.
 Vitis installation includes Vivado Design Suite - there is no need to install Vivado separately.
 
 Nexys Video, Nexys A7 100T and Arty A7 100T are supported by free version of Vivado. KC705, VC707 and Genesys 2 require Vivado license.
